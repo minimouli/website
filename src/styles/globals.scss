@@ -1,0 +1,28 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Roboto+Mono&display=swap');
+
+html {
+    margin: 0;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    min-width: 100%;
+    background-color: var(--main-bg-color);
+    font-family: 'Barlow', 'Roboto', sans-serif;
+}
+
+:root {
+    --primary: #292D3E;
+    --accent: #373D53;
+    --stroke: #525973;
+    --text-primary: white;
+    --text-secondary: #D0D6E0;
+}
