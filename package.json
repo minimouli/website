@@ -1,6 +1,7 @@
 {
   "private": true,
   "version": "1.0.0",
+  "description": "The website that power the minimouli platform.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
