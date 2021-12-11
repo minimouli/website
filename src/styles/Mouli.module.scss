@@ -1,0 +1,279 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+@media only screen and (max-width: 1214px) {
+    .container {
+        h1 {
+            color: var(--text-primary);
+            font-weight: 500;
+            margin: 0;
+            margin-left: 22px;
+        }
+        header {
+            margin-top: 4.5vh;
+            padding-bottom: 3.2vh;
+            display: flex;
+            align-items: flex-end;
+            span {
+                color: var(--text-secondary);
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                margin-left: 30px;
+                margin-bottom: 4px;
+            }
+            border-bottom: 1px solid var(--stroke);
+        }
+        .container_percentages {
+            margin-right: 24px;
+            margin-left: 24px;
+            section {
+                margin-top: 4.8vh;
+                .container_results {
+                    width: 100%;
+                    border-radius: 4px;
+                    .item_results {
+                        box-shadow: 0px 2px 4px 0px #00000040;
+                        border: 1px solid var(--stroke);
+                        background-color: var(--accent);
+                        color: var(--text-primary);
+                        width: 100%;
+                        border-radius: 4px;
+                        box-shadow: 0px 2px 4px 0px #00000040;
+                        border: 1px solid var(--stroke);
+                        background-color: var(--accent);
+                        margin-bottom: 24px;
+                        .title {
+                            position: static;
+                            height: 77.03px;
+                            justify-content: space-between;
+                            border-bottom: 1px solid var(--stroke);
+                            display: flex;
+                            h3 {
+                                margin: 18px 0 37.03px 24px;
+                                font-weight: 500;
+                                font-size: 18px;
+                                line-height: 22px;
+                            }
+                            h2 {
+                                margin-right: 24px;
+                            }
+                        }
+                        .results_item {
+                            display: flex;
+                            justify-content: space-between;
+                            h3 {
+                                font-weight: 400;
+                                font-size: 16px;
+                                line-height: 20px;
+                                margin: 12px 0 12px 24px;
+                            }
+                            span {
+                                margin: 13px 24px 13px 0;
+                                font-size: 14px;
+                                line-height: 18px;
+                                font-weight: 400;
+                                color: var(--text-secondary)
+                            }
+                        }
+                    }
+                }
+                .container_suites {
+                    width: 100%;
+                    border-radius: 4px;
+                    box-shadow: 0px 2px 4px 0px #00000040;
+                    border: 1px solid var(--stroke);
+                    background-color: var(--accent);
+                    margin-bottom: 3.4vh;
+                    .title {
+                        position: static;
+                        color: var(--text-primary);
+                        // height: 77.03px;
+                        justify-content: space-between;
+                        border-bottom: 1px solid var(--stroke);
+                        display: flex;
+                        h3 {
+                            margin: 18px 0 37.03px 24px;
+                            font-weight: 500;
+                            font-size: 18px;
+                            line-height: 22px;
+                        }
+                        h2 {
+                            margin-right: 24px;
+                        }
+                    }
+                    .results_suite {
+                        display: flex;
+                        justify-content: space-between;
+                        color: var(--text-primary);
+                        h3 {
+                            margin: 20px 0px 20px 24px;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 20px;
+                        }
+                        span {
+                            margin: 13px 24px 13px 0;
+                            font-size: 14px;
+                            line-height: 18px;
+                            font-weight: 400;
+                            color: var(--text-primary);
+                            align-self: flex-end;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1214px) {
+    .container {
+        min-width: 1200px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        h1 {
+            color: var(--text-primary);
+            font-weight: 500;
+            margin: 0;
+            margin-left: 24px;
+        }
+        header {
+            position: fixed;
+            width: 100%;
+            max-width: 1200px;
+            height: 118px;
+            top: 0px;
+            padding-bottom: 3.2vh;
+            padding-right: 20px;
+            padding-left: 20px;
+            backdrop-filter: blur(5px);
+            background: rgba(41, 45, 62, 0.8);
+            // padding-right: 14px;
+            // padding-left: 14px;
+            display: flex;
+            align-items: flex-end;
+            border-bottom: 1px solid var(--stroke);
+            span {
+                color: var(--text-secondary);
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                margin-left: 30px;
+                margin-bottom: 4px;
+            }
+        }
+        .container_percentages {
+            width: 100%;
+            max-width: 1200px;
+            // margin-right: 24px;
+            // margin-left: 24px;
+            section {
+                display: flex;
+                padding: 0 24px 0 24px;
+                margin-top: 182px;
+                .container_suites {
+                    order: 1;
+                    color: var(--text-primary);
+                    width: 368px;
+                    height: 100%;
+                    margin-left: 24px;
+                    border-radius: 4px;
+                    box-shadow: 0px 2px 4px 0px #00000040;
+                    border: 1px solid var(--stroke);
+                    background-color: var(--accent);
+                    // margin-bottom: 3.4vh;
+                    display: flex;
+                    flex-direction: column;
+                    .title {
+                        position: static;
+                        // height: 77.03px;
+                        justify-content: space-between;
+                        border-bottom: 1px solid var(--stroke);
+                        display: flex;
+                        h3 {
+                            margin: 18px 0 37.03px 24px;
+                            font-weight: 500;
+                            font-size: 18px;
+                            line-height: 22px;
+                        }
+                        h2 {
+                            margin-right: 24px;
+                        }
+                    }
+                    .results_suite {
+                        display: flex;
+                        justify-content: space-between;
+                        margin: 12px 20px 0px 24px;
+                        h3 {
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 20px;
+                        }
+                        span {
+                            margin: 13px 24px 13px 0;
+                            font-size: 14px;
+                            line-height: 18px;
+                            font-weight: 400;
+                            color: var(--text-primary);
+                            align-self: flex-end;
+                        }
+                    }
+                }
+                .container_results {
+                    color: red;
+                    display: flex;
+                    flex-direction: column;
+                    width: 760px;
+                    .item_results { 
+                        color: var(--text-primary);
+                        width: 100%;
+                        border-radius: 4px;
+                        box-shadow: 0px 2px 4px 0px #00000040;
+                        border: 1px solid var(--stroke);
+                        background-color: var(--accent);
+                        margin-bottom: 3.4vh;
+                        .title {
+                            position: static;
+                            height: 77.03px;
+                            justify-content: space-between;
+                            border-bottom: 1px solid var(--stroke);
+                            display: flex;
+                            h3 {
+                                margin: 18px 0 37.03px 24px;
+                                font-weight: 500;
+                                font-size: 18px;
+                                line-height: 22px;
+                            }
+                            h2 {
+                                margin-right: 24px;
+                            }
+                        }
+                        .results_item {
+                            display: flex;
+                            justify-content: space-between;
+                            margin: 12px 0 12px 24px;
+                            h3 {
+                                font-weight: 400;
+                                font-size: 16px;
+                                line-height: 20px;
+                            }
+                            span {
+                                margin: 13px 24px 13px 0;
+                                font-size: 14px;
+                                line-height: 18px;
+                                font-weight: 400;
+                                color: var(--text-secondary)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
