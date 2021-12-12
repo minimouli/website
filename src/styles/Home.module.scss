@@ -5,4 +5,86 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-.container {}
+.container {
+    width: 100%;
+    height: auto;
+}
+
+.hero {
+    padding: 0 24px;
+    margin-top: 120px;
+    margin-bottom: 72px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .headlines {
+        margin-bottom: 72px;
+        width: 100%;
+        height: auto;
+
+        h1 {
+            margin: 0;
+            color: var(--text-primary);
+            font-style: normal;
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 58px;
+            text-align: center;
+        }
+
+        h2 {
+            margin: 0;
+            margin-top: 48px;
+            color: var(--text-secondary);
+            font-style: normal;
+            font-weight: 300;
+            font-size: 22px;
+            line-height: 26px;
+            text-align: center;
+        }
+    }
+
+    .installation {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .snippet {
+            margin-bottom: 64px;
+            width: auto;
+            height: auto;
+        }
+
+        .caption {
+            color: var(--text-secondary);
+            font-style: normal;
+            font-weight: 300;
+            font-size: 22px;
+            line-height: 26px;
+
+            .command {
+                margin: 0 8px;
+                padding: 4px 6px;
+                background: var(--accent);
+                border: 1px solid var(--stroke);
+                border-radius: 4px;
+            }
+        }
+    }
+
+    @media only screen and (min-width: 992px) {
+
+        .headlines {
+            width: 650px;
+        }
+
+        .installation {
+            width: 650px;
+        }
+    }
+}
