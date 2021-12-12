@@ -29,6 +29,13 @@
         font-size: 16px;
         line-height: 20px;
     }
+
+    svg {
+        width: auto;
+        height: 100%;
+        float: right;
+        cursor: pointer;
+    }
 }
 
 .list {
