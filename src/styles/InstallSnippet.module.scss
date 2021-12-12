@@ -1,0 +1,86 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.container {
+    margin: 24px 24px 0 24px;
+    width: auto;
+    height: auto;
+}
+
+.snippet {
+    margin-bottom: 45px;
+    padding: 24px;
+    width: 330px;
+    height: 68px;
+    background: var(--accent);
+    border: 1px solid var(--stroke);
+    box-shadow: 0px 0px 24px var(--stroke);
+    border-radius: 4px;
+
+    span {
+        color: var(--text-primary);
+        font-family: 'Roboto Mono';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
+
+.list {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .choice {
+        margin: 6px 32px 6px 0;
+        color: var(--text-primary);
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .items {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        column-gap: 18px;
+
+        .item {
+            margin: 6px 8px;
+            width: auto;
+            height: auto;
+            cursor: pointer;
+
+            span {
+                color: #9297AA;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
+
+        .item.active {
+
+            span {
+                color: var(--text-primary);
+            }
+        }
+
+        vl {
+            margin: 0;
+            border: 0;
+            border-left: 1px solid var(--stroke);
+            height: 100%;
+        }
+    }
+}
