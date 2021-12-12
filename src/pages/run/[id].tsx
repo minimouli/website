@@ -5,142 +5,103 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { string } from 'prop-types'
-import styles from '../../styles/Mouli.module.scss'
-import { useEffect } from 'react'
-import { test } from '../.././styles/data'
+import Container from '../../components/Container'
+import RunHeader from '../../components/RunHeader'
+import RunCard from '../../components/RunCard'
+import SuiteCard from '../../components/SuiteCard'
+import SuiteSynthesis from '../../types/syntheses/SuiteSynthesis'
+import LightSuiteSynthesis from '../../types/syntheses/LightSuiteSynthesis'
+import styles from '../../styles/Run.module.scss'
+import config from '../../config'
 
-type HeaderType = {
-    title: string;
-    modulecode: string;
-}
+const processSuite = (suite: SuiteSynthesis, prefix: string[] = []): LightSuiteSynthesis => {
 
-type TestType = {
-    name: string;
-    status: string;
-    duration: Float32Array;
-}
+    prefix = prefix.concat(suite.name)
 
-type SuitesObjectType = {
-    name: string;
-    tests: Array<TestType>;
-    suites: Array<SuitesObjectType>;
-}
+    let children: LightSuiteSynthesis[] = []
 
-type GridManagerType = {
-    data: Array<SuitesObjectType>;
-}
-
-type ResultsType = {
-    title: string;
-    score: number;
-    data: Array<TestType>;
-    key: number;
-}
-
-const Header = ({title, modulecode}: HeaderType) => {
-    return (
-        <header>
-            <h1>{title}</h1>
-            <span>{modulecode}</span>
-        </header>
-    )
-}
-
-const ResultsItem = ({name, status}: {name: string, status: string}) => 
-{   
-    return (
-        <div className={styles.results_item}>
-            <h3>{name}</h3>
-            <span>{status}</span>
-        </div>
-    )
-}
-
-const SuitesItem = ({title}: {title: string}) =>
-{
-    return (
-        <div className={styles.results_suite}>
-            <h3>Clients preliminaries</h3>
-            <span>{title}%</span>
-        </div>
-    )
-}
-
-const Results = ({title, score, data}: ResultsType) => {
-    return (
-        <div className={styles.item_results}>
-            <div className={styles.title}>
-                <h3>{title}</h3>
-                <h2>100</h2>
-            </div>
-            {data.map((item, index) => {
-                return <ResultsItem key={index} name={item.name} status={item.status} />
-            })}
-        </div>
-    )
-}
-
-const Suites = ({title, score}: ResultsType) => {
-    return (
-        <div className={styles.container_suites}>
-            <div className={styles.title}>
-                <h3>{title}</h3>
-                <h2>100</h2>
-            </div>
-            <SuitesItem title='100'/>
-            <SuitesItem title='66'/>
-        </div>
-    )
-}
-
-const getTests = (data: SuitesObjectType, name: string) => {
-    console.log(name);
-    return data.map((item, index: number) => {
-        while (item.suites.length !== 0)
-            return getTests(item.suites, item.name);
-        return <Results key={index} title={name !== null ? `${name} / ${item.name}` : `${item.name}`} data={item.tests} score={3}></Results>
+    suite.suites.map((suite: SuiteSynthesis) => {
+        children = children.concat(processSuite(suite, prefix))
     })
-}
 
-const GridManager = ({data}: GridManagerType) => {
-    // if (!data) {
-    //     return <h3>Loading...</h3>
-    // }
-    return (
-        <div className={styles.container_percentages}>
-            <section>
-                <Suites title="Suites" score={3} />
-                <div className={styles.container_results}>
-                    {getTests(data, null)}
-                </div>
-            </section>
-        </div>
-    )
+    if (suite.tests.length === 0)
+        return children
+
+    const newSuite: LightSuiteSynthesis = {
+        name: prefix.join(' / '),
+        duration: 0,
+        score: 0,
+        tests: suite.tests
+    }
+
+    return [newSuite, ...children]
 }
 
 const Run = () => {
-    const router = useRouter();
-    // useEffect(() => {
-    //     if (!router.isReady) return;
-    //     const { id } = router.query;
-    //     console.log(id);
-    //     fetch(`https://api.minimouli.com/run/${id}`)
-    //     .then((res) => {
-    //         console.log(res.json());
-    //     })
-    //     .catch((err) => {
-    //         console.log(err);
-    //     })
-    // }, [router.isReady])
+
+    const router = useRouter()
+
+    const [projectName, setProjectName] = useState('')
+    const [moduleCode, setModuleCode] = useState('')
+    const [suites, setSuites] = useState<LightSuiteSynthesis[]>([])
+
+    useEffect(() => {
+
+        const { id } = router.query
+
+        if (!id)
+            return
+
+        fetch(`${config.api.baseUrl}/run/${id}`)
+        .then(res => res.json())
+        .then((res) => {
+
+            const suites: SuiteSynthesis[] = res.data.suites
+            let lightSuites: LightSuiteSynthesis[] = []
+
+            suites.forEach((suite: SuiteSynthesis) => {
+                lightSuites = lightSuites.concat(processSuite(suite))
+            })
+
+            setProjectName(res.data.project.name)
+            setModuleCode(res.data.project.module_code || res.data.project.module)
+            setSuites(lightSuites)
+        })
+        .catch((e) => {
+
+            console.log(e)
+
+        })
+
+    }, [router.isReady])
+
     return (
-        <div className={styles.container}>
-            <Header title={test.data.project.name} modulecode={test.data.project.module}/>
-            <GridManager data={test.data.suites}/>
-            {/* <p>Post: {id}</p> */}
+        <div className={styles.container} >
+
+            <RunHeader projectName={projectName} moduleCode={moduleCode} />
+
+            <main className={styles.main} >
+                <Container>
+                    <div className={styles.cards} >
+
+                        <div className={styles.col} >
+                            {suites.map((suite: LightSuiteSynthesis, index: number) => (
+                                <SuiteCard key={index} suite={suite} />
+                            ))}
+                        </div>
+
+                        <div className={`${styles.col} ${styles.col_suites}`} >
+                            {suites.length > 0 && (<RunCard suites={suites} />)}
+                        </div>
+
+                    </div>
+                </Container>
+            </main>
+
         </div>
     )
 }
 
-export default Run;
+export default Run
