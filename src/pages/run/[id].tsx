@@ -10,6 +10,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Container from '../../components/Container'
+import Footer from '../../components/Footer'
 import RunHeader from '../../components/RunHeader'
 import RunCard from '../../components/RunCard'
 import SuiteCard from '../../components/SuiteCard'
@@ -106,6 +107,8 @@ const Run: NextPage = () => {
                     </div>
                 </Container>
             </main>
+
+            <Footer />
 
         </div>
     )
