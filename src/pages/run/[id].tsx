@@ -6,6 +6,8 @@
  */
 
 import { useEffect, useState } from 'react'
+import type { NextPage } from 'next'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Container from '../../components/Container'
 import RunHeader from '../../components/RunHeader'
@@ -39,7 +41,7 @@ const processSuite = (suite: SuiteSynthesis, prefix: string[] = []): LightSuiteS
     return [newSuite, ...children]
 }
 
-const Run = () => {
+const Run: NextPage = () => {
 
     const router = useRouter()
 
@@ -79,6 +81,11 @@ const Run = () => {
 
     return (
         <div className={styles.container} >
+
+            <Head>
+                <title>Minimouli</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
 
             <RunHeader projectName={projectName} moduleCode={moduleCode} />
 
