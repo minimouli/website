@@ -114,6 +114,11 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
+"@minimouli/types@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@minimouli/types/-/types-1.0.0.tgz#4f1c840fe7704af404eda00433ee373c37ad16d3"
+  integrity sha512-8yqDM64sZE/q5XFOAMeTR46SXrzfYSKJRT5bI+PnEAjxmJ8mZQwRqMId0afbVqivKkMr25szD0pxVUMnR/SKJA==
+
 "@napi-rs/triples@1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@napi-rs/triples/-/triples-1.0.3.tgz#76d6d0c3f4d16013c61e45dfca5ff1e6c31ae53c"
