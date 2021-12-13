@@ -8,6 +8,7 @@
 import { ReactElement } from 'react'
 import Divider from './Divider'
 import FailTest from './FailTest'
+import IndicatorLarge from './IndicatorLarge'
 import SuccessTest from './SuccessTest'
 import LightSuiteSynthesis from '../types/syntheses/LightSuiteSynthesis'
 import TestSynthesis from '../types/syntheses/TestSynthesis'
@@ -22,9 +23,15 @@ const SuiteCard = ({suite}: SuiteCardProp) => {
         <section className={styles.container} >
 
             <div className={styles.head} >
+
                 <div className={styles.headline} >
                     <h2>{suite.name}</h2>
                 </div>
+
+                <div className={styles.indicator} >
+                    <IndicatorLarge value={suite.score} />
+                </div>
+
             </div>
 
             <Divider />

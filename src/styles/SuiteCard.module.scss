@@ -20,9 +20,11 @@
     margin-bottom: 18px;
     width: 100%;
     height: auto;
+    display: flex;
+    flex-direction: row;
 
     .headline {
-        margin: 18px 0;
+        margin-top: 18px;
         width: 100%;
         height: auto;
 
@@ -35,6 +37,12 @@
             line-height: 22px;
             display: inline;
         }
+    }
+
+    .indicator {
+        margin-top: 18px;
+        width: auto;
+        height: 41px;
     }
 }
 
