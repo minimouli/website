@@ -19,6 +19,24 @@ import LightSuiteSynthesis from '../../types/LightSuiteSynthesis'
 import styles from '../../styles/Run.module.scss'
 import config from '../../config'
 
+const calcScore = (tests: Syntheses.TestSynthesis[]): number => {
+
+    const total: number = tests.length
+
+    if (total === 0)
+        return 0
+
+    const effective: number = tests.reduce<number>((previous: number, test: Syntheses.TestSynthesis) => {
+
+        if (test.status === Syntheses.TestStatus.FAILURE)
+            return previous
+
+        return previous + 1
+    }, 0)
+
+    return effective / total
+}
+
 const processSuite = (suite: Syntheses.SuiteSynthesis, prefix: string[] = []): LightSuiteSynthesis[] => {
 
     prefix = prefix.concat(suite.name)
@@ -32,10 +50,12 @@ const processSuite = (suite: Syntheses.SuiteSynthesis, prefix: string[] = []): L
     if (suite.tests.length === 0)
         return children
 
+    const score: number = calcScore(suite.tests)
+
     const newSuite: LightSuiteSynthesis = {
         name: prefix.join(' / '),
         duration: 0,
-        score: 0,
+        score,
         tests: suite.tests
     }
 
