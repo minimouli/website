@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    h3 {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: var(--hint-grey);
+        margin: 0;
+    }
+}
+
+.container_hint {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: row;
+    h2 {
+        color: var(--text-primary);
+        margin: 0;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 400;
+    }
+    .expect {
+        width: 50%;
+    }
+    .received {
+        padding-left: 19px;
+        width: 50%;
+        border-left: 1px solid var(--stroke);
+    }
+}

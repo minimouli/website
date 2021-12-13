@@ -9,23 +9,23 @@ import { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { Syntheses } from '@minimouli/types'
 import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import RunHeader from '../../components/RunHeader'
 import RunCard from '../../components/RunCard'
 import SuiteCard from '../../components/SuiteCard'
-import SuiteSynthesis from '../../types/syntheses/SuiteSynthesis'
-import LightSuiteSynthesis from '../../types/syntheses/LightSuiteSynthesis'
+import LightSuiteSynthesis from '../../types/LightSuiteSynthesis'
 import styles from '../../styles/Run.module.scss'
 import config from '../../config'
 
-const processSuite = (suite: SuiteSynthesis, prefix: string[] = []): LightSuiteSynthesis[] => {
+const processSuite = (suite: Syntheses.SuiteSynthesis, prefix: string[] = []): LightSuiteSynthesis[] => {
 
     prefix = prefix.concat(suite.name)
 
     let children: LightSuiteSynthesis[] = []
 
-    suite.suites.map((suite: SuiteSynthesis) => {
+    suite.suites.map((suite: Syntheses.SuiteSynthesis) => {
         children = children.concat(processSuite(suite, prefix))
     })
 
@@ -61,10 +61,10 @@ const Run: NextPage = () => {
         .then(res => res.json())
         .then((res) => {
 
-            const suites: SuiteSynthesis[] = res.data.suites
+            const suites: Syntheses.SuiteSynthesis[] = res.data.suites
             let lightSuites: LightSuiteSynthesis[] = []
 
-            suites.forEach((suite: SuiteSynthesis) => {
+            suites.forEach((suite: Syntheses.SuiteSynthesis) => {
                 lightSuites = lightSuites.concat(processSuite(suite))
             })
 

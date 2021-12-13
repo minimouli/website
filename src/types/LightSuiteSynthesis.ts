@@ -5,13 +5,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import TestSynthesis from './TestSynthesis'
+import { Syntheses, Unit} from '@minimouli/types'
 
 type LightSuiteSynthesis = {
     name: string,
     duration: Unit.ms,
     score: number,
-    tests: TestSynthesis[]
+    tests: Syntheses.TestSynthesis[]
 }
 
 export default LightSuiteSynthesis

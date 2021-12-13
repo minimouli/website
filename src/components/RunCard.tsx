@@ -33,7 +33,6 @@ const RunCard = ({suites}: RunCardProp) => {
                         <div className={styles.name} >
                             <span>{suite.name}</span>
                         </div>
-
                     </div>
                 ))}
             </div>
