@@ -47,18 +47,18 @@ const SuiteCard = ({suite}: SuiteCardProp) => {
 
                     if (test.status === Syntheses.TestStatus.SUCCESS) {
                         return (
-                            <>
+                            <div className={styles.item} key={index} >
                                 {showDivider && <Divider/>}
-                                <SuccessTest key={index} test={test} />
-                            </>
+                                <SuccessTest test={test} />
+                            </div>
                         )
                     }
 
                     return (
-                        <>
+                        <div className={styles.item} key={index} >
                             {showDivider && <Divider/>}
-                            <FailTest key={index} test={test} />
-                        </>
+                            <FailTest test={test} />
+                        </div>
                     )
                 })}
             </div>
