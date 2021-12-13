@@ -1,0 +1,52 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.container {
+    width: 48px;
+    height: 41px;
+    position: relative;
+}
+
+.container:after {
+    top: 50%;
+    left: 50%;
+    margin-top: -8px;
+    margin-left: -24px;
+    width: 48px;
+    height: 20px;
+    color: var(--text-primary);
+    content: attr(data-value);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    position: absolute;
+}
+
+.svg {
+    width: 48px;
+    height: 48px;
+    transform: rotate(135deg);
+
+    circle {
+        fill: none;
+        stroke-width: 2px;
+    }
+
+    .below {
+        stroke: var(--stroke);
+        stroke-dasharray: 100 100;
+        stroke-linecap: round;
+    }
+
+    .above {
+        stroke: var(--indicator);
+        stroke-dasharray: 100 100;
+        stroke-linecap: round;
+    }
+}
