@@ -16,7 +16,23 @@ type RunCardProp = {
     suites: LightSuiteSynthesis[],
 }
 
+const calcScore = (suites: LightSuiteSynthesis[]): number => {
+
+    const total: number = suites.reduce<number>((previous: number, suite: LightSuiteSynthesis) => {
+        return previous + suite.tests.length
+    }, 0)
+
+    const effective: number = suites.reduce<number>((previous: number, suite: LightSuiteSynthesis) => {
+        return previous + (suite.score * suite.tests.length)
+    }, 0)
+
+    return effective / total
+}
+
 const RunCard = ({suites}: RunCardProp) => {
+
+    const score: number = calcScore(suites)
+
     return (
         <section className={styles.container} >
 
@@ -27,7 +43,7 @@ const RunCard = ({suites}: RunCardProp) => {
                 </div>
 
                 <div className={styles.indicator} >
-                    <IndicatorLarge value={0.2} />
+                    <IndicatorLarge value={score} />
                 </div>
 
             </div>
