@@ -7,6 +7,8 @@
 
 import { ReactElement } from 'react'
 import Divider from './Divider'
+import IndicatorLarge from './IndicatorLarge'
+import IndicatorSmall from './IndicatorSmall'
 import LightSuiteSynthesis from '../types/syntheses/LightSuiteSynthesis'
 import styles from '../styles/RunCard.module.scss'
 
@@ -19,9 +21,15 @@ const RunCard = ({suites}: RunCardProp) => {
         <section className={styles.container} >
 
             <div className={styles.head} >
+
                 <div className={styles.headline} >
                     <h2>Suites</h2>
                 </div>
+
+                <div className={styles.indicator} >
+                    <IndicatorLarge value={0.2} />
+                </div>
+
             </div>
 
             <Divider />
@@ -33,6 +41,12 @@ const RunCard = ({suites}: RunCardProp) => {
                         <div className={styles.name} >
                             <span>{suite.name}</span>
                         </div>
+
+                        <div className={styles.indicator} >
+                            <span>{Math.round(suite.score * 100)}%</span>
+                            <IndicatorSmall value={suite.score} />
+                        </div>
+
                     </div>
                 ))}
             </div>
