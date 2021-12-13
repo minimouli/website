@@ -6,6 +6,7 @@
  */
 
 import { ReactElement } from 'react'
+import { Syntheses } from '@minimouli/types'
 import Divider from './Divider'
 import FailTest from './FailTest'
 import IndicatorLarge from './IndicatorLarge'
@@ -39,10 +40,26 @@ const SuiteCard = ({suite}: SuiteCardProp) => {
             <div className={styles.tests} >
                 {suite.tests.map((test: TestSynthesis, index: number) => {
 
-                    if (test.status === 'Status.SUCCESS')
-                        return <SuccessTest key={index} test={test} />
+                    const containsFailures: boolean = suite.score !== 1
+                    const isFirstTest: boolean = index === 0
 
-                    return <FailTest key={index} test={test} />
+                    const showDivider: boolean = containsFailures && !isFirstTest
+
+                    if (test.status === Syntheses.TestStatus.SUCCESS) {
+                        return (
+                            <>
+                                {showDivider && <Divider/>}
+                                <SuccessTest key={index} test={test} />
+                            </>
+                        )
+                    }
+
+                    return (
+                        <>
+                            {showDivider && <Divider/>}
+                            <FailTest key={index} test={test} />
+                        </>
+                    )
                 })}
             </div>
 
