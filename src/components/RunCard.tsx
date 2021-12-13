@@ -7,15 +7,14 @@
 
 import { ReactElement } from 'react'
 import Divider from './Divider'
-import LightSuiteSynthesis from '../../types/syntheses/LightSuiteSynthesis'
+import LightSuiteSynthesis from '../types/syntheses/LightSuiteSynthesis'
 import styles from '../styles/RunCard.module.scss'
 
 type RunCardProp = {
     suites: LightSuiteSynthesis[],
-    children: ReactElement
 }
 
-const RunCard = ({suites, children}: RunCardProp) => {
+const RunCard = ({suites}: RunCardProp) => {
     return (
         <section className={styles.container} >
 

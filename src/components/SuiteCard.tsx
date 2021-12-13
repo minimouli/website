@@ -9,16 +9,15 @@ import { ReactElement } from 'react'
 import Divider from './Divider'
 import FailTest from './FailTest'
 import SuccessTest from './SuccessTest'
-import LightSuiteSynthesis from '../../types/syntheses/LightSuiteSynthesis'
-import TestSynthesis from '../../types/syntheses/TestSynthesis'
+import LightSuiteSynthesis from '../types/syntheses/LightSuiteSynthesis'
+import TestSynthesis from '../types/syntheses/TestSynthesis'
 import styles from '../styles/SuiteCard.module.scss'
 
 type SuiteCardProp = {
-    suite: LightSuiteSynthesis,
-    children: ReactElement
+    suite: LightSuiteSynthesis
 }
 
-const SuiteCard = ({suite, children}: SuiteCardProp) => {
+const SuiteCard = ({suite}: SuiteCardProp) => {
     return (
         <section className={styles.container} >
 

@@ -19,7 +19,7 @@ import LightSuiteSynthesis from '../../types/syntheses/LightSuiteSynthesis'
 import styles from '../../styles/Run.module.scss'
 import config from '../../config'
 
-const processSuite = (suite: SuiteSynthesis, prefix: string[] = []): LightSuiteSynthesis => {
+const processSuite = (suite: SuiteSynthesis, prefix: string[] = []): LightSuiteSynthesis[] => {
 
     prefix = prefix.concat(suite.name)
 
