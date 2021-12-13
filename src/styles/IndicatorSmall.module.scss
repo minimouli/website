@@ -1,0 +1,27 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.svg {
+    width: 20px;
+    height: 20px;
+    transform: rotate(-90deg);
+
+    circle {
+        fill: none;
+        stroke-width: 3px;
+    }
+
+    .below {
+        stroke: var(--stroke);
+    }
+
+    .above {
+        stroke: var(--indicator);
+        stroke-dasharray: 100 100;
+        stroke-linecap: round;
+    }
+}
