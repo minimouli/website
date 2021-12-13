@@ -24,7 +24,7 @@ const calcScore = (tests: Syntheses.TestSynthesis[]): number => {
     const total: number = tests.length
 
     if (total === 0)
-        return 0
+        return 1
 
     const effective: number = tests.reduce<number>((previous: number, test: Syntheses.TestSynthesis) => {
 
