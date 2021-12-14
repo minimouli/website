@@ -40,15 +40,9 @@ const SuiteCard = ({suite}: SuiteCardProp) => {
             <div className={styles.tests} >
                 {suite.tests.map((test: TestSynthesis, index: number) => {
 
-                    const containsFailures: boolean = suite.score !== 1
-                    const isFirstTest: boolean = index === 0
-
-                    const showDivider: boolean = containsFailures && !isFirstTest
-
                     if (test.status === Syntheses.TestStatus.SUCCESS) {
                         return (
                             <div className={styles.item} key={index} >
-                                {showDivider && <Divider/>}
                                 <SuccessTest test={test} />
                             </div>
                         )
@@ -56,7 +50,6 @@ const SuiteCard = ({suite}: SuiteCardProp) => {
 
                     return (
                         <div className={styles.item} key={index} >
-                            {showDivider && <Divider/>}
                             <FailTest test={test} />
                         </div>
                     )

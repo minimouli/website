@@ -7,6 +7,7 @@
 
 import { Syntheses, Hints } from '@minimouli/types'
 import styles from '../styles/FailTest.module.scss'
+import Divider from './Divider'
 import HintItem from './hints/HintItem'
 
 type FailTestProp = {
@@ -39,20 +40,23 @@ const Chip = ({category} : ChipProp) => {
 
 const FailTest = ({test}: FailTestProp) => {
     return (
-        <div className={styles.container} >
-            <div className={styles.headline} >
+        <>
+            <div className={styles.container} >
+                <div className={styles.headline} >
 
-                <div className={styles.name} >
-                    <span>{test.name}</span>
-                    {test.hint?.category && <Chip category={test.hint.category}/>}
-                </div>
+                    <div className={styles.name} >
+                        <span>{test.name}</span>
+                        {test.hint?.category && <Chip category={test.hint.category}/>}
+                    </div>
 
-                <div className={styles.status} >
-                    <span>Failed</span>
+                    <div className={styles.status} >
+                        <span>Failed</span>
+                    </div>
                 </div>
+                {test.hint && <HintItem hint={test.hint}/>}
             </div>
-            {test.hint && <HintItem hint={test.hint}/>}
-        </div>
+            <Divider />
+        </>
     )
 }
 

@@ -1,4 +1,10 @@
-import styles from '../../styles/HintItem.module.scss'
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
 import { Hints } from '@minimouli/types'
 
 interface HintTimeoutProp {
@@ -7,7 +13,7 @@ interface HintTimeoutProp {
 
 const HintTimeout = ({hint} : HintTimeoutProp) => {
     return (
-        <h3>Timeout after {hint.timeout}ms</h3>
+        <h3 style={{marginBottom: '12px'}}>Timeout after {hint.timeout}ms</h3>
     )
 }
 

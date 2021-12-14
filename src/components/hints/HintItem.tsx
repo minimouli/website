@@ -7,27 +7,37 @@
 
 import { Hints } from '@minimouli/types'
 import styles from '../../styles/HintItem.module.scss'
+import HintEqual from './HintEqual';
 import HintStringdiff from './HintStringdiff';
 import HintTimeout from './HintTimeout'
+import HintStreamdiff from './HintStreamdiff'
+import HintComp from './HintComp'
+import HintMatcherError from './HintMatcherError'
 
 interface HintItemProp {
     hint: Hints.Hint
 }
 
 interface HintChoiceProp {
-    type: Hints.HintType,
     hint: Hints.Hint
 }
 
-const Hintchoice = ({type, hint} : HintChoiceProp) => {
-    console.log(hint);
+const Hintchoice = ({hint} : HintChoiceProp) => {
     switch (hint.type) {
         case Hints.HintType.TIMEOUT:
             return <HintTimeout hint={hint as Hints.TimeoutHint}/>
         case Hints.HintType.STRING_DIFF:
             return <HintStringdiff hint={hint as Hints.StringDiffHint} />
+        case Hints.HintType.EQUAL:
+            return <HintEqual hint={hint as Hints.EqualHint} />
+        case Hints.HintType.STREAM_DIFF:
+            return <HintStreamdiff hint={hint as Hints.StreamDiffHint} />
+        case Hints.HintType.COMP:
+            return <HintComp hint={hint as Hints.CompHint} />
+        case Hints.HintType.MATCHER_ERROR:
+            return <HintMatcherError hint={hint as Hints.MatcherErrorHint} />
         default:
-            return <h1></h1>
+            return <></>
     }
 }
 
@@ -45,7 +55,7 @@ const HintItem = ({hint} : HintItemProp) => {
         <div className={styles.container}>
             <h3><div>{error_hint}</div></h3>
             {hint.message && <h3>{hint.message}</h3>}
-            <Hintchoice type={hint.type} hint={hint}/>
+            <Hintchoice hint={hint}/>
         </div>
     )
 }
