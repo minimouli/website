@@ -19,7 +19,9 @@ const Footer = () => {
                 <footer className={styles.footer} >
 
                     <div className={styles.identity} >
-                        <span>Minimouli</span>
+                        <Link href="/" >
+                            <span>Minimouli</span>
+                        </Link>
                     </div>
 
                     <div className={styles.services} >
