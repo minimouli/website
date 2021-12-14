@@ -12,11 +12,35 @@ import FailTest from './FailTest'
 import IndicatorLarge from './IndicatorLarge'
 import SuccessTest from './SuccessTest'
 import LightSuiteSynthesis from '../types/syntheses/LightSuiteSynthesis'
-import TestSynthesis from '../types/syntheses/TestSynthesis'
 import styles from '../styles/SuiteCard.module.scss'
 
 type SuiteCardProp = {
     suite: LightSuiteSynthesis
+}
+
+const isDividerNeeded = (suite: LightSuiteSynthesis, current: Syntheses.TestSynthesis, index: number): boolean => {
+
+    const next: Syntheses.TestSynthesis | undefined = suite.tests[index + 1]
+
+    const containsFailures: boolean = suite.score !== 1
+
+    if (!containsFailures)
+        return false
+
+    const isLast: boolean = index === suite.tests.length - 1
+    const isCurrentAFailure: boolean = current.status === Syntheses.TestStatus.FAILURE
+    const isNextAFailure: boolean = next?.status === Syntheses.TestStatus.FAILURE || false
+
+    if (isLast)
+        return false
+
+    if (isCurrentAFailure)
+        return true
+
+    if (isNextAFailure)
+        return true
+
+    return false
 }
 
 const SuiteCard = ({suite}: SuiteCardProp) => {
@@ -38,12 +62,15 @@ const SuiteCard = ({suite}: SuiteCardProp) => {
             <Divider />
 
             <div className={styles.tests} >
-                {suite.tests.map((test: TestSynthesis, index: number) => {
+                {suite.tests.map((test: Syntheses.TestSynthesis, index: number) => {
+
+                    const showDivider: boolean = isDividerNeeded(suite, test, index)
 
                     if (test.status === Syntheses.TestStatus.SUCCESS) {
                         return (
                             <div className={styles.item} key={index} >
                                 <SuccessTest test={test} />
+                                {showDivider && <Divider/>}
                             </div>
                         )
                     }
@@ -51,6 +78,7 @@ const SuiteCard = ({suite}: SuiteCardProp) => {
                     return (
                         <div className={styles.item} key={index} >
                             <FailTest test={test} />
+                            {showDivider && <Divider/>}
                         </div>
                     )
                 })}
