@@ -20,13 +20,13 @@ const HintStringdiff = ({hint} : HintStringDiffProp) => {
             <div className={styles.container_hint}>
                 <div className={styles.expect}>
                     <h2>Expected:</h2>
-                    {hint.received.value.map((item, key) => {
+                    {hint.expected.value.map((item, key) => {
                         return <h3 key={key}>{item}</h3>
                     })}
                 </div>
                 <div className={styles.received}>
                     <h2>Received:</h2>
-                    {hint.expected.value.map((item, key) => {
+                    {hint.received.value.map((item, key) => {
                         return <h3 key={key}>{item}</h3>
                     })}
                 </div>
