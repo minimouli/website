@@ -15,7 +15,7 @@ const InstallSnippet = () => {
         yarn: 'yarn global add minimouli'
     }
 
-    const [selection, select] = useState('npm')
+    const [selection, select] = useState<'npm' | 'yarn'>('npm')
 
     const handleCopy = () => {
         navigator.clipboard.writeText(commands[selection])
@@ -43,8 +43,6 @@ const InstallSnippet = () => {
                     <div className={`${styles.item} ${selection === 'npm' ? styles.active : ''}`} onClick={() => select('npm')} >
                         <span>npm</span>
                     </div>
-
-                    <vl />
 
                     <div className={`${styles.item} ${selection === 'yarn' ? styles.active : ''}`} onClick={() => select('yarn')} >
                         <span>yarn</span>
