@@ -11,7 +11,7 @@ import Divider from './Divider'
 import FailTest from './FailTest'
 import IndicatorLarge from './IndicatorLarge'
 import SuccessTest from './SuccessTest'
-import LightSuiteSynthesis from '../types/syntheses/LightSuiteSynthesis'
+import LightSuiteSynthesis from '../types/LightSuiteSynthesis'
 import styles from '../styles/SuiteCard.module.scss'
 
 type SuiteCardProp = {

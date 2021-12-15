@@ -9,7 +9,7 @@ import { ReactElement } from 'react'
 import Divider from './Divider'
 import IndicatorLarge from './IndicatorLarge'
 import IndicatorSmall from './IndicatorSmall'
-import LightSuiteSynthesis from '../types/syntheses/LightSuiteSynthesis'
+import LightSuiteSynthesis from '../types/LightSuiteSynthesis'
 import styles from '../styles/RunCard.module.scss'
 
 type RunCardProp = {

@@ -5,11 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { Syntheses } from '@minimouli/types'
 import styles from '../styles/SuccessTest.module.scss'
-import TestSynthesis from '../../types/syntheses/TestSynthesis'
 
 type SuccessTestProp = {
-    test: TestSynthesis
+    test: Syntheses.TestSynthesis
 }
 
 const SuccessTest = ({test}: SuccessTestProp) => {
