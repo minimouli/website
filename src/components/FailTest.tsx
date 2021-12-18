@@ -6,45 +6,29 @@
  */
 
 import { Syntheses, Hints } from '@minimouli/types'
-import styles from '../styles/FailTest.module.scss'
+import Chip from './Chip'
 import HintItem from './hints/HintItem'
+import styles from '../styles/FailTest.module.scss'
 
-type FailTestProp = {
+interface FailTestProps {
     test: Syntheses.TestSynthesis
 }
 
-type ChipProp = {
-    category: Hints.HintCategory
-}
-
-const Chip = ({category} : ChipProp) => {
-    let style;
-
-    switch (category) {
-        case Hints.HintCategory.OUTPUT:
-            style = {background: 'var(--output-color)'}
-            break
-        case Hints.HintCategory.EXIT_CODE:
-            style = {background: 'var(--exit-code-color)'}
-            break
-        case Hints.HintCategory.TIMEOUT:
-            style = {background: 'var(--timeout-color)'}
-            break
-    }
-
-    return (
-        <div className={styles.chip} style={style} ></div>
-    )
-}
-
-const FailTest = ({test}: FailTestProp) => {
+const FailTest = ({test}: FailTestProps) => {
     return (
         <div className={styles.container} >
             <div className={styles.headline} >
 
                 <div className={styles.name} >
+
                     <span>{test.name}</span>
-                    {test.hint?.category && <Chip category={test.hint.category}/>}
+
+                    {test.hint?.category && (
+                        <div className={styles.chip} >
+                            <Chip category={test.hint.category}/>
+                        </div>
+                    )}
+
                 </div>
 
                 <div className={styles.status} >
