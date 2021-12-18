@@ -6,7 +6,8 @@
  */
 
 import { ReactElement } from 'react'
-import { Syntheses } from '@minimouli/types'
+import { Hints, Syntheses } from '@minimouli/types'
+import ChipCounter from './ChipCounter'
 import Divider from './Divider'
 import FailTest from './FailTest'
 import IndicatorLarge from './IndicatorLarge'
@@ -14,7 +15,7 @@ import SuccessTest from './SuccessTest'
 import LightSuiteSynthesis from '../types/LightSuiteSynthesis'
 import styles from '../styles/SuiteCard.module.scss'
 
-type SuiteCardProp = {
+interface SuiteCardProps {
     suite: LightSuiteSynthesis
 }
 
@@ -43,14 +44,50 @@ const isDividerNeeded = (suite: LightSuiteSynthesis, current: Syntheses.TestSynt
     return false
 }
 
-const SuiteCard = ({suite}: SuiteCardProp) => {
+const countCategory = (tests: Syntheses.TestSynthesis[], category: Hints.HintCategory): number => {
+
+    return tests.reduce((previous: number, test: Syntheses.TestSynthesis) => {
+
+        if (!test.hint)
+            return previous
+
+        if (test.hint.category === category)
+            return previous + 1
+
+        return previous
+    }, 0)
+}
+
+const SuiteCard = ({suite}: SuiteCardProps) => {
+
+    const categorizedTests: Syntheses.TestSynthesis[] = suite.tests.filter((test: Syntheses.TestSynthesis) => !!test.hint?.category)
+    const chips = {
+        output: countCategory(categorizedTests, Hints.HintCategory.OUTPUT),
+        exitCode: countCategory(categorizedTests, Hints.HintCategory.EXIT_CODE),
+        timeout: countCategory(categorizedTests, Hints.HintCategory.TIMEOUT)
+    }
+
     return (
         <section className={styles.container} >
 
             <div className={styles.head} >
 
                 <div className={styles.headline} >
-                    <h2>{suite.name}</h2>
+
+                    <div className={styles.title} >
+                        <h2>{suite.name}</h2>
+                    </div>
+
+                    {categorizedTests.length > 0 && (
+                        <div className={styles.chips} >
+
+                            {chips.output > 0 && <ChipCounter category={Hints.HintCategory.OUTPUT} value={chips.output} />}
+                            {chips.exitCode > 0 && <ChipCounter category={Hints.HintCategory.EXIT_CODE} value={chips.exitCode} />}
+                            {chips.timeout > 0 && <ChipCounter category={Hints.HintCategory.TIMEOUT} value={chips.timeout} />}
+
+                        </div>
+                    )}
+
                 </div>
 
                 <div className={styles.indicator} >
