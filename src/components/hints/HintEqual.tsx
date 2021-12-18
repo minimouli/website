@@ -5,24 +5,64 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import styles from '../../styles/HintItem.module.scss'
+import { ReactElement } from 'react'
 import { Hints } from '@minimouli/types'
+import Snippet from './Snippet'
+import styles from '../../styles/Hint.module.scss'
 
-interface HintEqualProp {
+interface HintEqualProps {
     hint: Hints.EqualHint
 }
 
-const HintEqual = ({hint} : HintEqualProp) => {
+const format = (value: string, type: Hints.ObjectType): ReactElement => {
+    switch (type) {
+        case Hints.ObjectType.BOOLEAN:
+        case Hints.ObjectType.NUMBER:
+            return <span className={styles.primitive} >{value}</span>
+
+        case Hints.ObjectType.OBJECT:
+        case Hints.ObjectType.UNDEFINED:
+            return <span className={styles.neutral} >{value}</span>
+
+        case Hints.ObjectType.STRING:
+            return <span className={styles.neutral} >&quot;{value}&quot;</span>
+    }
+}
+
+const HintEqual = ({hint} : HintEqualProps) => {
     return (
-        <div>
-            <div className={styles.equal_output} style={{marginTop: '18px'}}>
-                <div className={styles.title}>Expected:</div>
-                    {hint.expected?.value}
+        <div className={styles.container} >
+
+            {(hint.category !== Hints.HintCategory.EXIT_CODE || hint.received.value !== 'null') && hint.snippet && <Snippet hint={hint} />}
+
+            {hint.category === Hints.HintCategory.EXIT_CODE && hint.received.value === 'null' && (
+                <div className={styles.message} >
+                    <span>The executable crash.</span>
                 </div>
-            <div className={styles.false_output} style={{marginBottom: '12px'}}>
-                <div className={styles.title}>Received:</div>
-                {hint.received.value}
-            </div>
+            )}
+
+            {hint.message && (
+                <div className={styles.message} >
+                    <span>{hint.message}</span>
+                </div>
+            )}
+
+            {(hint.category !== Hints.HintCategory.EXIT_CODE || hint.received.value !== 'null') && (
+                <div className={styles.diffColumn} >
+
+                    {hint.expected && (
+                        <div className={styles.item} >
+                            <span className={styles.expected} >Expected: {format(hint.expected.value, hint.expected.type)}</span>
+                        </div>
+                    )}
+
+                    <div className={styles.item} >
+                        <span className={styles.received} >Received: {format(hint.received.value, hint.received.type)}</span>
+                    </div>
+
+                </div>
+            )}
+
         </div>
     )
 }

@@ -5,46 +5,82 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import styles from '../../styles/HintItem.module.scss'
+import { ReactElement } from 'react'
 import { Hints } from '@minimouli/types'
+import Snippet from './Snippet'
+import styles from '../../styles/Hint.module.scss'
 
-interface HintStringDiffProp {
+interface HintStringDiffProps {
     hint: Hints.StringDiffHint
 }
 
-const HintStringdiff = ({hint} : HintStringDiffProp) => {
-    console.log(hint);
+const format = (value: string, type: Hints.ObjectType): ReactElement => {
+    switch (type) {
+        case Hints.ObjectType.BOOLEAN:
+        case Hints.ObjectType.NUMBER:
+            return <span className={styles.primitive} >{value}</span>
 
-    if (hint.expected.value.length >= 2 || hint.received.value.length >= 2) {
-        return (
-            <div className={styles.container_hint}>
-                <div className={styles.expect}>
-                    <h2>Expected:</h2>
-                    {hint.expected.value.map((item, key) => {
-                        return <h3 key={key}>{item}</h3>
-                    })}
-                </div>
-                <div className={styles.received}>
-                    <h2>Received:</h2>
-                    {hint.received.value.map((item, key) => {
-                        return <h3 key={key}>{item}</h3>
-                    })}
-                </div>
-            </div>
-        )
+        case Hints.ObjectType.OBJECT:
+        case Hints.ObjectType.UNDEFINED:
+            return <span className={styles.neutral} >{value}</span>
+
+        case Hints.ObjectType.STRING:
+            return <span className={styles.neutral} >&quot;{value}&quot;</span>
     }
+}
+
+const HintStringDiff = ({hint} : HintStringDiffProps) => {
     return (
-        <div>
-            <div className={styles.output} style={{marginTop: '18px'}}>
-                <div className={styles.title}>Expected:</div>
-                    {hint.expected.value[0]}
+        <div className={styles.container} >
+
+            {hint.snippet && <Snippet hint={hint} />}
+
+            {hint.message && (
+                <div className={styles.message} >
+                    <span>{hint.message}</span>
                 </div>
-                <div className={styles.output} style={{marginBottom: '12px'}}>
-                    <div className={styles.title}>Received:</div>
-                    {hint.received.value[0]}
-            </div>
+            )}
+
+            {hint.expected.value.length > 1 || hint.received.value.length > 1 ? (
+                <div className={styles.diffRow} >
+
+                    <div className={styles.item} >
+                        <span className={styles.title} >Expected:</span>
+
+                        <div className={styles.values} >
+                            {hint.expected.value.map((value: string, index: number) => (
+                                <span key={index} >{value}</span>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className={styles.item} >
+                        <span className={styles.title} >Received:</span>
+
+                        <div className={styles.values} >
+                            {hint.received.value.map((value: string, index: number) => (
+                                <span key={index} >{value}</span>
+                            ))}
+                        </div>
+                    </div>
+
+                </div>
+            ) : (
+                <div className={styles.diffColumn} >
+
+                    <div className={styles.item} >
+                        <span className={styles.expected} >Expected: {format(hint.expected.value.join(''), hint.expected.type)}</span>
+                    </div>
+
+                    <div className={styles.item} >
+                        <span className={styles.received} >Received: {format(hint.received.value.join(''), hint.received.type)}</span>
+                    </div>
+
+                </div>
+            )}
+
         </div>
     )
 }
 
-export default HintStringdiff
+export default HintStringDiff

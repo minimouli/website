@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Roboto+Mono:wght@300;400&display=swap');
 
 html,
 body {
@@ -28,13 +28,13 @@ a {
     --primary: #292d3e;
     --accent: #373d53;
     --stroke: #525973;
-    --text-primary: white;
+    --text-primary: #ffffff;
     --text-secondary: #d0d6e0;
+    --text-tertiary: #bbbbbb;
+    --text-success: #86ed98;
+    --text-failure: #ee766d;
     --indicator: #05b169;
-    --success: #86ed98;
-    --failure: #ee766d;
-    --output-color: #de4733;
+    --output-color: #de4773;
     --exit-code-color: #126cf1;
     --timeout-color: #fb9d4b;
-    --hint-grey: #bbbbbb;
 }

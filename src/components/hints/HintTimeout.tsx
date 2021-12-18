@@ -6,14 +6,30 @@
  */
 
 import { Hints } from '@minimouli/types'
+import Snippet from './Snippet'
+import styles from '../../styles/Hint.module.scss'
 
-interface HintTimeoutProp {
+interface HintTimeoutProps {
     hint: Hints.TimeoutHint
 }
 
-const HintTimeout = ({hint} : HintTimeoutProp) => {
+const HintTimeout = ({hint} : HintTimeoutProps) => {
     return (
-        <h3 style={{marginBottom: '12px'}}>Timeout after {hint.timeout}ms</h3>
+        <div className={styles.container} >
+
+            {hint.snippet && <Snippet hint={hint} />}
+
+            <div className={styles.message} >
+                <span>Timeout after {hint.timeout}ms.</span>
+            </div>
+
+            {hint.message && (
+                <div className={styles.message} >
+                    <span>{hint.message}</span>
+                </div>
+            )}
+
+        </div>
     )
 }
 

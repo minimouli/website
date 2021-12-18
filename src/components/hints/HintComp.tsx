@@ -5,27 +5,58 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import { ReactElement } from 'react'
 import { Hints } from '@minimouli/types'
-import styles from '../../styles/HintItem.module.scss'
+import Snippet from './Snippet'
+import styles from '../../styles/Hint.module.scss'
 
-interface HintCompProp {
+interface HintCompProps {
     hint: Hints.CompHint
 }
- 
-const HintComp = ({hint} : HintCompProp) => {
+
+const format = (value: string, type: Hints.ObjectType): ReactElement => {
+    switch (type) {
+        case Hints.ObjectType.BOOLEAN:
+        case Hints.ObjectType.NUMBER:
+            return <span className={styles.primitive} >{value}</span>
+
+        case Hints.ObjectType.OBJECT:
+        case Hints.ObjectType.UNDEFINED:
+            return <span className={styles.neutral} >{value}</span>
+
+        case Hints.ObjectType.STRING:
+            return <span className={styles.neutral} >&quot;{value}&quot;</span>
+    }
+}
+
+const HintComp = ({hint} : HintCompProps) => {
     return (
-        <div>
-            <div className={styles.equal_output} style={{marginTop: '18px'}}>
-                <div className={styles.title}>Expected: {hint.symbol}</div>
-                    {hint.expected.value}
+        <div className={styles.container} >
+
+            {hint.snippet && <Snippet hint={hint} />}
+
+            {hint.message && (
+                <div className={styles.message} >
+                    <span>{hint.message}</span>
                 </div>
-            <div className={styles.false_output} style={{marginBottom: '12px'}}>
-                <div className={styles.title}>Received:</div>
-                {hint.received.value}
+            )}
+
+            <div className={styles.diffColumn} >
+
+                {hint.received && (
+                    <div className={styles.item} >
+                        <span className={styles.expected} >Expected: {hint.symbol} {format(hint.expected.value, hint.expected.type)}</span>
+                    </div>
+                )}
+
+                <div className={styles.item} >
+                    <span className={styles.received} >Received: {format(hint.received.value, hint.received.type)}</span>
+                </div>
+
             </div>
+
         </div>
     )
 }
- 
+
 export default HintComp
- 
