@@ -7,9 +7,11 @@
 
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
 import InstallSnippet from '../components/InstallSnippet'
+import RegularHeader from '../components/RegularHeader'
 import styles from '../styles/Home.module.scss'
 
 const Home: NextPage = () => {
@@ -21,6 +23,26 @@ const Home: NextPage = () => {
                 <meta name="description" content="Get feedback on your projects without waiting for nao" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+
+            <RegularHeader>
+
+                <Link href="/" passHref >
+                    <span data-selected >Installation</span>
+                </Link>
+
+                <Link href="/mouli" passHref >
+                    <span>Mouli</span>
+                </Link>
+
+                <Link href="https://github.com/minimouli" passHref >
+                    <span>Open Source</span>
+                </Link>
+
+                <Link href="/changelog" passHref >
+                    <span>Changelog</span>
+                </Link>
+
+            </RegularHeader>
 
             <Container>
                 <main className={styles.hero} >
