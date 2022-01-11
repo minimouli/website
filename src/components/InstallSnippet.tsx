@@ -44,6 +44,8 @@ const InstallSnippet = () => {
                         <span>npm</span>
                     </div>
 
+                    <div className={styles.vl} ></div>
+
                     <div className={`${styles.item} ${selection === 'yarn' ? styles.active : ''}`} onClick={() => select('yarn')} >
                         <span>yarn</span>
                     </div>

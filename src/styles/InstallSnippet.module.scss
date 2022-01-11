@@ -74,16 +74,15 @@
                 font-size: 16px;
                 line-height: 20px;
             }
-        }
 
-        .item.active {
-
-            span {
-                color: var(--text-primary);
+            &.active {
+                span {
+                    color: var(--text-primary);
+                }
             }
         }
 
-        vl {
+        .vl {
             margin: 0;
             border: 0;
             border-left: 1px solid var(--stroke);
