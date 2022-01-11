@@ -1,0 +1,22 @@
+{
+    "posts": [
+        {
+            "id": "2021-12-22-minimouli-v101",
+            "title": "Minimouli v1.0.3",
+            "date": {
+                "year": 2021,
+                "month": 11,
+                "day": 22
+            }
+        },
+        {
+            "id": "2021-12-22-pushswap-v102",
+            "title": "Pushswap v1.0.2",
+            "date": {
+                "year": 2021,
+                "month": 11,
+                "day": 22
+            }
+        }
+    ]
+}
