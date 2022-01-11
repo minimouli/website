@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ReactNode } from 'react'
+import { ReactNode, useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import Container from './Container'
 import Divider from './Divider'
@@ -16,6 +16,36 @@ type RegularHeaderProps = {
 }
 
 const RegularHeader = ({ children }: RegularHeaderProps) => {
+
+    const [scrollY, setScrollY] = useState(0)
+    const [dividerVisible, setDividerVisible] = useState(false)
+
+    const handleScroll = useCallback((e) => {
+
+        const window = e.currentTarget
+
+        if (window.scrollY > 64) {
+            setDividerVisible(true)
+        } else {
+            setDividerVisible(false)
+        }
+
+        setScrollY(window.scrollY)
+
+    }, [scrollY])
+
+    useEffect(() => {
+
+        setScrollY(window.scrollY)
+
+        window.addEventListener('scroll', handleScroll)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+
+    }, [handleScroll])
+
     return (
         <header className={styles.container} >
             <Container>
@@ -38,7 +68,9 @@ const RegularHeader = ({ children }: RegularHeaderProps) => {
 
                 </div>
 
-                <Divider />
+                {dividerVisible && (
+                    <Divider />
+                )}
 
             </Container>
         </header>

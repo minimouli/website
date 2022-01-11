@@ -12,6 +12,10 @@
     backdrop-filter: blur(2px);
     z-index: 999;
     position: fixed;
+
+    & hr {
+        animation: appear 0.2s ease;
+    }
 }
 
 .content {
@@ -80,5 +84,14 @@
     .right {
         flex: 1;
     }
+}
 
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
