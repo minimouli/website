@@ -1,0 +1,84 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.container {
+    width: 100%;
+    height: auto;
+    background: rgba(41, 45, 62, 0.8);
+    backdrop-filter: blur(2px);
+    z-index: 999;
+    position: fixed;
+}
+
+.content {
+    padding: 0 24px 0 24px;
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    .title {
+        margin: 0;
+        width: auto;
+        color: var(--text-primary);
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        cursor: pointer;
+    }
+}
+
+.buttons {
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 12px;
+
+    .button {
+        margin: 6px 8px 6px 8px;
+        cursor: pointer;
+
+        span {
+            width: auto;
+            color: var(--text-secondary);
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+
+            &[data-selected] {
+                color: var(--text-primary);
+            }
+        }
+    }
+}
+
+.right {
+    height: 64px;
+}
+
+@media only screen and (min-width: 992px) {
+
+    .left {
+    }
+
+    .buttons {
+
+    }
+
+    .right {
+        flex: 1;
+    }
+
+}
