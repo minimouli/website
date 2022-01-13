@@ -5,14 +5,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { ReactElement } from 'react'
+import { ReactNode } from 'react'
 import styles from '../styles/Container.module.scss'
 
 interface ContainerProps {
-    children: ReactElement | ReactElement[]
+    children: ReactNode | ReactNode[]
 }
 
-const Container = ({children}: ContainerProps) => {
+const Container = ({ children }: ContainerProps) => {
     return (
         <div className={styles.container} >
             <div className={styles.content} >
