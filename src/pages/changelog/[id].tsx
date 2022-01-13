@@ -56,8 +56,8 @@ const Changelog: NextPage<ChangelogProps> = ({ post }: ChangelogProps) => {
         <div className={styles.container} >
 
             <Head>
-                <title>Changelog</title>
-                <meta name="description" content="Changelog for Minimouli" />
+                <title>{post.title}</title>
+                <meta name="robots" content="noindex" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 

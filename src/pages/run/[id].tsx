@@ -105,6 +105,7 @@ const Run: NextPage = () => {
 
             <Head>
                 <title>Minimouli</title>
+                <meta name="robots" content="noindex" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
