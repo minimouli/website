@@ -1,0 +1,61 @@
+{
+    "posts": [
+        {
+            "id": "bsq",
+            "title": "BSQ",
+            "description": "Find the biggest square",
+            "details": {
+                "Version": "1.0.1",
+                "Developer": "belminksy",
+                "Category": "Mouli",
+                "Package": "@minimouli/bsq"
+            },
+            "github": {
+                "name": "minimouli/bsq",
+                "url": "https://github.com/minimouli/bsq"
+            },
+            "npm": {
+                "name": "@minimouli/bsq",
+                "url": "https://www.npmjs.com/package/@minimouli/bsq"
+            }
+        },
+        {
+            "id": "navy",
+            "title": "Navy",
+            "description": "You sunk my battleship!",
+            "details": {
+                "Version": "1.0.1",
+                "Developer": "belminksy",
+                "Category": "Mouli",
+                "Package": "@minimouli/navy"
+            },
+            "github": {
+                "name": "minimouli/navy",
+                "url": "https://github.com/minimouli/navy"
+            },
+            "npm": {
+                "name": "@minimouli/navy",
+                "url": "https://www.npmjs.com/package/@minimouli/navy"
+            }
+        },
+        {
+            "id": "pushswap",
+            "title": "Pushswap",
+            "description": "Fancy list sorting",
+            "details": {
+                "Version": "1.0.2",
+                "Developer": "belminksy",
+                "Category": "Mouli",
+                "Package": "@minimouli/pushswap"
+            },
+            "github": {
+                "name": "minimouli/pushswap",
+                "url": "https://github.com/minimouli/pushswap"
+            },
+            "npm": {
+                "name": "@minimouli/pushswap",
+                "url": "https://www.npmjs.com/package/@minimouli/pushswap"
+            }
+        }
+    ]
+}
