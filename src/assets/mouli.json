@@ -1,6 +1,25 @@
 {
     "posts": [
         {
+            "id": "antman",
+            "title": "Antman",
+            "description": "Itsy Bitsy Bytes",
+            "details": {
+                "Version": "1.0.0",
+                "Developer": "belminksy",
+                "Category": "Mouli",
+                "Package": "@minimouli/antman"
+            },
+            "github": {
+                "name": "minimouli/antman",
+                "url": "https://github.com/minimouli/antman"
+            },
+            "npm": {
+                "name": "@minimouli/antman",
+                "url": "https://www.npmjs.com/package/@minimouli/antman"
+            }
+        },
+        {
             "id": "bsq",
             "title": "BSQ",
             "description": "Find the biggest square",
