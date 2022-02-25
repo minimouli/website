@@ -58,6 +58,25 @@
             }
         },
         {
+            "id": "printf",
+            "title": "Printf",
+            "description": "Printf command-like",
+            "details": {
+                "Version": "1.0.0",
+                "Developer": "belminksy",
+                "Category": "Mouli",
+                "Package": "@minimouli/printf"
+            },
+            "github": {
+                "name": "minimouli/printf",
+                "url": "https://github.com/minimouli/printf"
+            },
+            "npm": {
+                "name": "@minimouli/printf",
+                "url": "https://www.npmjs.com/package/@minimouli/printf"
+            }
+        },
+        {
             "id": "pushswap",
             "title": "Pushswap",
             "description": "Fancy list sorting",
@@ -74,6 +93,25 @@
             "npm": {
                 "name": "@minimouli/pushswap",
                 "url": "https://www.npmjs.com/package/@minimouli/pushswap"
+            }
+        },
+        {
+            "id": "tekspice",
+            "title": "Nanotekspice",
+            "description": "Digital Electronics",
+            "details": {
+                "Version": "1.0.0",
+                "Developer": "belminksy",
+                "Category": "Mouli",
+                "Package": "@minimouli/nanotekspice"
+            },
+            "github": {
+                "name": "minimouli/nanotekspice",
+                "url": "https://github.com/minimouli/nanotekspice"
+            },
+            "npm": {
+                "name": "@minimouli/nanotekspice",
+                "url": "https://www.npmjs.com/package/@minimouli/nanotekspice"
             }
         }
     ]
