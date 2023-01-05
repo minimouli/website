@@ -25,6 +25,7 @@
     "plugin:@typescript-eslint/strict",
     "plugin:import/recommended",
     "plugin:import/typescript",
+    "plugin:storybook/recommended",
     "plugin:unicorn/recommended"
   ],
   "ignorePatterns": [
