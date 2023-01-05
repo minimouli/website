@@ -1,0 +1,102 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .head {
+        margin-bottom: 48px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .snippet {
+            margin-bottom: 16px;
+            width: 330px;
+            box-shadow: 0 0 24px rgba(44, 41, 68, 0.8);
+        }
+
+        .information {
+            display: flex;
+            flex-direction: row;
+
+            span {
+                color: var(--secondary-text);
+                font-size: var(--font-size-sm);
+                line-height: 1.25rem;
+                cursor: default;
+
+                &:not(:first-child) {
+                    padding-left: var(--gap-7);
+                }
+
+                &:not(:last-child)::after {
+                    margin-top: 0.25rem;
+                    padding-left: var(--gap-7);
+                    height: 0.75rem;
+                    border-width: 0;
+                    border-right-width: 1px;
+                    border-color: var(--stroke);
+                    border-style: solid;
+                    content:'';
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    .bottom {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        & > span {
+            margin-right: 32px;
+            cursor: default;
+        }
+
+        .items {
+            display: flex;
+            flex-direction: row;
+
+            div {
+                span {
+                    padding: var(--gap-2) var(--gap-3);
+                    color: var(--secondary-text);
+                    font-size: var(--font-size-md);
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+
+                &.active {
+                    span {
+                        color: var(--primary-text);
+                    }
+                }
+
+                &:not(:first-child) {
+                    padding-left: var(--gap-7);
+                }
+
+                &:not(:last-child)::after {
+                    margin-top: 0.25rem;
+                    padding-left: var(--gap-7);
+                    height: 0.75rem;
+                    border-width: 0;
+                    border-right-width: 1px;
+                    border-color: var(--stroke);
+                    border-style: solid;
+                    content:'';
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
