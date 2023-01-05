@@ -1,0 +1,22 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.viewport {
+    margin: 0;
+    padding: var(--viewport-padding);
+    width: 390px;
+    max-width: 100vw;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    outline: none;
+    z-index: 2147483647;
+}

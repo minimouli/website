@@ -34,14 +34,15 @@
     --gap-6: 1rem; // 16px
     --gap-7: 1.125rem; // 18px
     --gap-8: 1.5rem; // 24px
+    --viewport-padding: 24px;
     --radius-md: 6px;
     --radius-lg: 8px;
 }
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html,
