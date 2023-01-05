@@ -5,7 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export const parameters = {
+import './fonts.scss'
+import '../app/globals.scss'
+
+const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
         matchers: {
@@ -13,4 +16,8 @@ export const parameters = {
             date: /Date$/,
         },
     },
+}
+
+export {
+    parameters
 }
