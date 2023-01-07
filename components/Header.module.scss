@@ -1,0 +1,29 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.header {
+    width: 100%;
+    background: rgba(9, 7, 23, .8);
+    backdrop-filter: blur(2px);
+    z-index: 999;
+    position: fixed;
+
+    .container {
+        padding: 0 24px;
+        height: 48px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &.withDivider {
+            border-width: 0;
+            border-bottom-width: 1px;
+            border-color: var(--stroke);
+            border-style: solid;
+        }
+    }
+}
