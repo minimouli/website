@@ -14,7 +14,7 @@ import { Identity } from './Identity'
 
 const Header = () => {
 
-    const [scrollY, setScrollY] = useState(window.scrollY)
+    const [scrollY, setScrollY] = useState(typeof window === 'undefined' ? 0 : window.scrollY)
     const [isDividerVisible, setDividerVisibility] = useState(scrollY > 64)
 
     useEffect(() => {
