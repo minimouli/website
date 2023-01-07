@@ -5,13 +5,137 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-.title {
-    font-size: var(--font-size-xxl);
-    font-weight: 700;
+.page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.caption {
-    color: var(--primary-text-darker);
-    font-size: var(--font-size-xl);
-    font-weight: 400;
+.main {
+    margin-top: 144px;
+    margin-bottom: 96px;
+    width: 100%;
+
+    .container {
+        padding: 0 24px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .hero {
+            margin-bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .texts {
+                margin-bottom: 64px;
+                width: 100%;
+                max-width: 800px;
+
+                .title {
+                    margin-bottom: 48px;
+                    font-size: var(--font-size-xxl);
+                    font-weight: 700;
+                    text-align: center;
+                }
+
+                .caption {
+                    color: var(--primary-text-darker);
+                    font-size: var(--font-size-xl);
+                    font-weight: 400;
+                    text-align: center;
+                }
+            }
+        }
+
+        .terminal {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+
+            .window {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                z-index: 1;
+            }
+
+            .ellipses {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                overflow: hidden;
+                filter: blur(150px);
+                position: absolute;
+
+                div {
+                    width: 100%;
+                    max-width: 900px;
+                    aspect-ratio: 900 / 627;
+                    position: relative;
+
+                    .blue {
+                        width: 902px;
+                        aspect-ratio: 902 / 504;
+                        left: -142px;
+                        bottom: 0;
+                        position: absolute;
+
+                    }
+
+                    .red {
+                        width: 797px;
+                        aspect-ratio: 797 / 498;
+                        top: 21px;
+                        right: -76px;
+                        position: absolute;
+                    }
+                }
+
+                &.animated {
+                    .blue {
+                        ellipse {
+                            animation: glow-blue 5s ease-out;
+                            fill: #462196;
+                        }
+                    }
+
+                    .red {
+                        ellipse {
+                            animation: glow-red 5s ease-out;
+                            fill: #923232;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes glow-blue {
+    0% {
+        fill: var(--background);
+    }
+    10%, 12% {
+        fill: #5c16f5;
+    }
+    100% {
+        fill: #462196;
+    }
+}
+
+@keyframes glow-red {
+    0% {
+        fill: var(--background);
+    }
+    10%, 12% {
+        fill: #de0b0b;
+    }
+    100% {
+        fill: #923232;
+    }
 }

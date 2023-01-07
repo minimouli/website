@@ -6,7 +6,8 @@
  */
 
 .window {
-    width: 900px;
+    width: 100%;
+    max-width: 900px;
     background: linear-gradient(248.84deg, #27051D 0%, #160A33 100%);
     box-shadow: 0 8px 30px 10px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(7, 4, 14, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.3);
     border-radius: var(--radius-lg);
@@ -30,6 +31,7 @@
     }
 
     .body {
+        width: calc(100% - 24px);
         margin: 6px 12px 12px 12px;
         aspect-ratio: 1080 / 716.43;
         flex: 1;
