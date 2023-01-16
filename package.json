@@ -12,6 +12,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@minimouli/types": "^2.0.0",
     "@next/font": "13.1.1",
     "@radix-ui/react-toast": "^1.1.2",
     "next": "13.1.1",

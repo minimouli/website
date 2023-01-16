@@ -2066,6 +2066,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@minimouli/types@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@minimouli/types@npm:2.0.0"
+  dependencies:
+    core-js: ^3.25.0
+  checksum: ec84937f5dd58d5a6592c7b09bb1bbfc3d32098ca23f7846fd4fe6fb947b9a747a71bada629f3d8c236c74106a83225f142ca7046caaa6ba01dc3d6b9823819b
+  languageName: node
+  linkType: hard
+
 "@next/env@npm:13.1.1":
   version: 13.1.1
   resolution: "@next/env@npm:13.1.1"
@@ -6014,7 +6023,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^3.0.4, core-js@npm:^3.6.5, core-js@npm:^3.8.2":
+"core-js@npm:^3.0.4, core-js@npm:^3.25.0, core-js@npm:^3.6.5, core-js@npm:^3.8.2":
   version: 3.27.1
   resolution: "core-js@npm:3.27.1"
   checksum: d50b5f88aea4302512ad9446c18e90f4d35dea1e6d8d3f87337690677061565ff11a670f1e0c87de57aa6074375fbb25ed5784076c040d3c4de8b4bce7d2ebeb
@@ -11991,6 +12000,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": ^17.4.0
     "@commitlint/config-conventional": ^17.4.0
+    "@minimouli/types": ^2.0.0
     "@next/font": 13.1.1
     "@radix-ui/react-toast": ^1.1.2
     "@storybook/addon-essentials": ^7.0.0-beta.19
