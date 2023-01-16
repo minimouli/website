@@ -10,7 +10,8 @@
     "moduleResolution": "node",
 
     "paths": {
-      "@minimouli/types/hints": ["./node_modules/@minimouli/types/dist/hints"]
+      "@minimouli/types/hints": ["./node_modules/@minimouli/types/dist/hints"],
+      "@minimouli/types/syntheses": ["./node_modules/@minimouli/types/dist/syntheses"]
     },
 
     "strict": true,
