@@ -1,0 +1,40 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.card {
+    background: var(--surface);
+    border-width: 1px;
+    border-color: var(--stroke);
+    border-style: solid;
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+
+    .head {
+        padding: 18px 24px;
+        border-width: 0;
+        border-bottom-width: 1px;
+        border-color: var(--stroke);
+        border-style: solid;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        span {
+            color: var(--primary-text);
+            font-size: var(--font-size-lg);
+            font-weight: 500;
+        }
+    }
+
+    .body {
+        padding: 6px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+}
