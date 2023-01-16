@@ -1,0 +1,29 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.snippet {
+    color: var(--primary-text-darker);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    line-height: 1.125rem;
+
+    .method {
+        color: var(--primary-text);
+    }
+
+    .received {
+        color: var(--color-failure);
+    }
+
+    .expected {
+        color: var(--color-success);
+    }
+
+    .separation {
+        color: var(--primary-text-darker);
+    }
+}
