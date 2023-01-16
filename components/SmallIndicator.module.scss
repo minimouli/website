@@ -1,0 +1,18 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.indicator {
+    path {
+        fill: var(--secondary-stroke);
+    }
+
+    circle {
+        stroke: var(--color-success);
+        transform-origin: 10px 10px;
+        transform: rotate(-90deg);
+    }
+}
