@@ -1,0 +1,32 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.item {
+    margin: 8px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+        color: var(--primary-text);
+        font-weight: 400;
+    }
+
+    .indication {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        span {
+            margin-right: 8px;
+            color: var(--primary-text-darker);
+            font-size: var(--font-size-sm);
+            font-weight: 400;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap-1);
+
+    span {
+        color: var(--primary-text-darker);
+        font-size: var(--font-size-sm);
+        font-weight: 500;
+    }
+
+    .icon {
+        margin: 0 var(--gap-0-5);
+        width: 1.125rem;
+        height: 1.125rem;
+
+        path {
+            stroke: var(--primary-text-darker);
+        }
+    }
+}

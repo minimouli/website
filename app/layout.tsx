@@ -7,6 +7,7 @@
 
 import './globals.scss'
 import { Barlow, JetBrains_Mono } from '@next/font/google'
+import { ToastProvider } from '../components/providers/ToastProvider'
 import type { ReactNode } from 'react'
 
 const barlow = Barlow({
@@ -29,7 +30,9 @@ const RootLayout = ({ children }: RootLayoutProps) => (
     <html lang="en" >
         <head />
         <body className={`${barlow.variable} ${jetbrainsMono.variable}`} >
-            {children}
+            <ToastProvider>
+                {children}
+            </ToastProvider>
         </body>
     </html>
 )

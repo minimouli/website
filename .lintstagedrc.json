@@ -1,0 +1,8 @@
+{
+  "*.(ts|tsx)": [
+    "eslint --fix --max-warnings 0"
+  ],
+  "*.(js|cjs|mjs|ts|tsx)": [
+    "node ./scripts/check-copyright-header.mjs"
+  ]
+}

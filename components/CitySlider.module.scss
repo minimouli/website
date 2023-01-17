@@ -1,0 +1,44 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.container {
+    height: 1.125rem;
+    overflow-y: hidden;
+
+    .slider {
+        display: flex;
+        flex-direction: column;
+        animation: slide calc(2600ms * 4);
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-out;
+
+        span {
+            height: 1.125rem;
+            color: var(--primary-text);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+        }
+    }
+}
+
+@keyframes slide {
+    0%, 21.25% {
+        transform: translateY(0);
+    }
+    25%, 46.25% {
+        transform: translateY(-1.125rem);
+    }
+    50%, 71.25% {
+        transform: translateY(calc(-1.125rem * 2));
+    }
+    75%, 96.25% {
+        transform: translateY(calc(-1.125rem * 3));
+    }
+    100% {
+        transform: translateY(calc(-1.125rem * 4));
+    }
+}

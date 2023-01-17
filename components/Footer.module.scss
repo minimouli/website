@@ -1,0 +1,54 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.footer {
+    width: 100%;
+    border-width: 0;
+    border-top-width: 1px;
+    border-color: var(--stroke);
+    border-style: solid;
+
+    .container {
+        width: 100%;
+        padding: 0 24px;
+
+        .navigation {
+            margin-top: 32px;
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .bottom {
+            margin-bottom: 32px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .icons {
+                display: flex;
+                flex-direction: row;
+                gap: var(--gap-8);
+
+                .icon {
+                    width: 18px;
+                    height: 18px;
+
+                    path {
+                        fill: var(--primary-text-darker);
+                    }
+
+                    &:hover {
+                        path {
+                            fill: var(--primary-text);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -9,6 +9,11 @@
     "module": "esnext",
     "moduleResolution": "node",
 
+    "paths": {
+      "@minimouli/types/hints": ["./node_modules/@minimouli/types/dist/hints"],
+      "@minimouli/types/syntheses": ["./node_modules/@minimouli/types/dist/syntheses"]
+    },
+
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
