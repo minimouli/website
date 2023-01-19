@@ -45,11 +45,13 @@ const Run = async ({ params }: RunProps) => {
     const suites = sort(fromSuites(run.suites as SuiteSynthesis[]))
         .filter((suite) => suite.tests.length > 0)
 
+    const cycle = `${project.cycle}-${(project.cycle + 1).toString().slice(2)}`
+
     return (
         <div className={styles.page} >
             <RunHeader
                 title={project.displayName}
-                caption={[organizationName, project.cycle].join(' / ')}
+                caption={[organizationName, cycle].join(' / ')}
             />
 
             <main className={styles.main} >
