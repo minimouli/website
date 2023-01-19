@@ -23,7 +23,7 @@ const RunInformationCard = ({ run }: RunInformationCard) => (
         <div className={styles.body} >
             <RunInformationItem title="Run id" value={run.id} />
             <RunInformationItem title="Moulinette" value={`${run.moulinette.id}@${run.moulinetteVersion}`} />
-            <RunInformationItem title="Timestamp" value={format(run.createdAt)} />
+            <RunInformationItem title="Timestamp" value={`${format(run.createdAt)} UTC-0`} />
         </div>
     </section>
 )
