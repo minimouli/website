@@ -6,15 +6,15 @@
  */
 
 import { HintCategory } from '@minimouli/types/hints'
-import styles from './SingleLineStringDifferenceHint.module.scss'
+import styles from './UnilineStringDifferenceHint.module.scss'
 import { HintSnippet } from '../HintSnippet'
 import type { StringDifferenceHint } from '@minimouli/types/hints'
 
-interface SingleLineStringDifferenceHintProps {
+interface UnilineStringDifferenceHintProps {
     hint: StringDifferenceHint
 }
 
-const SingleLineStringDifferenceHint = ({ hint }: SingleLineStringDifferenceHintProps) => (
+const UnilineStringDifferenceHint = ({ hint }: UnilineStringDifferenceHintProps) => (
     <div className={styles.hint} >
 
         {hint.snippet !== undefined && (
@@ -64,5 +64,5 @@ const SingleLineStringDifferenceHint = ({ hint }: SingleLineStringDifferenceHint
 )
 
 export {
-    SingleLineStringDifferenceHint
+    UnilineStringDifferenceHint
 }
