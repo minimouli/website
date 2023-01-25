@@ -7,8 +7,11 @@
 
 'use client'
 import { diffArrays } from 'diff'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { Toast } from './Toast'
 import styles from './StringDifference.module.scss'
+import { ClipboardIcon } from './icons/ClipboardIcon'
+import { Pressable } from './interactivity/Pressable'
 import type { ArrayChange } from 'diff'
 
 interface StringDifferenceProps {
@@ -42,6 +45,8 @@ const getStatus = (change: ArrayChange<string>): LineStatus => {
 
 const StringDifference = ({ oldArray, newArray }: StringDifferenceProps) => {
 
+    const timerRef = useRef(0)
+    const [open, setOpen] = useState(false)
     const [lines, setLines] = useState<Line[]>([])
 
     useEffect(() => {
@@ -50,14 +55,45 @@ const StringDifference = ({ oldArray, newArray }: StringDifferenceProps) => {
         setLines(changeLines)
     }, [oldArray, newArray])
 
+
+    useEffect(() => () => clearTimeout(timerRef.current), [])
+
+    const handleCopy = (content: string) => {
+        void navigator.clipboard.writeText(content).then(() => {
+            setOpen(false)
+            window.clearTimeout(timerRef.current)
+
+            timerRef.current = window.setTimeout(() => {
+                setOpen(true)
+            }, 100)
+        })
+    }
+
+    const handleExpectedClick = () => handleCopy(oldArray.join('\n'))
+    const handleReceivedClick = () => handleCopy(newArray.join('\n'))
+
     return (
         <table className={styles.container} >
             <thead>
                 <tr>
                     <td></td>
-                    <td>Expected:</td>
+                    <td>
+                        <div className={styles.header} >
+                            <span className={styles.title} >Expected:</span>
+                            <Pressable onClick={handleExpectedClick} >
+                                <ClipboardIcon className={styles.icon} />
+                            </Pressable>
+                        </div>
+                    </td>
                     <td></td>
-                    <td>Received:</td>
+                    <td>
+                        <div className={styles.header} >
+                            <span className={styles.title} >Received:</span>
+                            <Pressable onClick={handleReceivedClick} >
+                                <ClipboardIcon className={styles.icon} />
+                            </Pressable>
+                        </div>
+                    </td>
                 </tr>
             </thead>
             <tbody>
@@ -92,6 +128,7 @@ const StringDifference = ({ oldArray, newArray }: StringDifferenceProps) => {
                     </tr>
                 ))}
             </tbody>
+            <Toast open={open} onOpenChange={setOpen} title="Copied!" description="The output is now in your clipboard" />
         </table>
     )
 }

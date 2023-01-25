@@ -18,13 +18,12 @@
 
             td {
                 padding-bottom: var(--gap-4);
-                color: var(--primary-text);
-                font-family: var(--font-sans);
-                font-size: var(--font-size-sm);
-                line-height: 1.125rem;
 
                 &:nth-child(even) {
                     width: 50%;
+                }
+
+                &:nth-child(2) {
                     padding-right: var(--gap-6);
                 }
 
@@ -34,6 +33,30 @@
                     border-left-width: 1px;
                     border-color: var(--stroke);
                     border-style: solid;
+                }
+
+                .header {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .title {
+                        color: var(--primary-text);
+                        font-family: var(--font-sans);
+                        font-size: var(--font-size-sm);
+                        line-height: 1.125rem;
+                    }
+
+                    .icon {
+                        width: 1.125rem;
+                        height: 1.125rem;
+
+                        path {
+                            stroke: var(--secondary-stroke);
+                        }
+                    }
                 }
             }
         }
