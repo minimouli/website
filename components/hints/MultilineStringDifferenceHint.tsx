@@ -6,16 +6,16 @@
  */
 
 import { HintCategory } from '@minimouli/types/hints'
-import styles from './MultipleLinesStringDifferenceHint.module.scss'
+import styles from './MultilineStringDifferenceHint.module.scss'
 import { HintSnippet } from '../HintSnippet'
 import { StringDifference } from '../StringDifference'
 import type { StringDifferenceHint } from '@minimouli/types/hints'
 
-interface MultipleLinesStringDifferenceHintProps {
+interface MultilineStringDifferenceHintProps {
     hint: StringDifferenceHint
 }
 
-const MultipleLinesStringDifferenceHint = ({ hint }: MultipleLinesStringDifferenceHintProps) => (
+const MultilineStringDifferenceHint = ({ hint }: MultilineStringDifferenceHintProps) => (
     <div className={styles.hint} >
 
         {hint.snippet !== undefined && (
@@ -35,5 +35,5 @@ const MultipleLinesStringDifferenceHint = ({ hint }: MultipleLinesStringDifferen
 )
 
 export {
-    MultipleLinesStringDifferenceHint
+    MultilineStringDifferenceHint
 }

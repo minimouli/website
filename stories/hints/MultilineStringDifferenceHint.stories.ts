@@ -6,15 +6,15 @@
  */
 
 import { HintCategory, HintStatus, HintType, ObjectType } from '@minimouli/types/hints'
-import { MultipleLinesStringDifferenceHint } from '../../components/hints/MultipleLinesStringDifferenceHint'
+import { MultilineStringDifferenceHint } from '../../components/hints/MultilineStringDifferenceHint'
 import type { Meta, StoryObj } from '@storybook/react'
 
-const meta: Meta<typeof MultipleLinesStringDifferenceHint> = {
-    title: 'hints/MultipleLinesStringDifferenceHint',
-    component: MultipleLinesStringDifferenceHint
+const meta: Meta<typeof MultilineStringDifferenceHint> = {
+    title: 'hints/MultilineStringDifferenceHint',
+    component: MultilineStringDifferenceHint
 }
 
-type Story = StoryObj<typeof MultipleLinesStringDifferenceHint>
+type Story = StoryObj<typeof MultilineStringDifferenceHint>
 
 const Default: Story = {
     args: {

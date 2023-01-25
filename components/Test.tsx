@@ -11,9 +11,9 @@ import styles from './Test.module.scss'
 import { ComparisonHint } from './hints/ComparisonHint'
 import { EqualityHint } from './hints/EqualityHint'
 import { MatcherErrorHint } from './hints/MatcherErrorHint'
-import { MultipleLinesStringDifferenceHint } from './hints/MultipleLinesStringDifferenceHint'
+import { MultilineStringDifferenceHint } from './hints/MultilineStringDifferenceHint'
 import { StreamDifferenceHint } from './hints/StreamDifferenceHint'
-import { SingleLineStringDifferenceHint } from './hints/SingleLineStringDifferenceHint'
+import { UnilineStringDifferenceHint } from './hints/UnilineStringDifferenceHint'
 import { TimeoutHint } from './hints/TimeoutHint'
 import type { Hint } from '@minimouli/types/dist/hints'
 import type { TestSynthesis } from '@minimouli/types/dist/syntheses'
@@ -50,9 +50,9 @@ const getHint = (hint: Hint): ReactNode => {
         }
         case HintType.StringDifference: {
             if (hint.expected.value.length + hint.received.value.length > 2)
-                return <MultipleLinesStringDifferenceHint hint={hint} />
+                return <MultilineStringDifferenceHint hint={hint} />
 
-            return <SingleLineStringDifferenceHint hint={hint} />
+            return <UnilineStringDifferenceHint hint={hint} />
         }
         case HintType.Timeout: {
             return <TimeoutHint hint={hint} />

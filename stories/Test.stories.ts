@@ -106,7 +106,7 @@ const FailureWithMatcherError: Story = {
         }
     }
 }
-const FailureWithMultipleLinesStringDifference: Story = {
+const FailureWithMultilineStringDifference: Story = {
     args: {
         test: {
             name: 'Test name',
@@ -135,7 +135,7 @@ const FailureWithMultipleLinesStringDifference: Story = {
         }
     }
 }
-const FailureWithSingleLineStringDifference: Story = {
+const FailureWithUnilineStringDifference: Story = {
     args: {
         test: {
             name: 'Test name',
@@ -206,8 +206,8 @@ export {
     FailureWithComparison,
     FailureWithEquality,
     FailureWithMatcherError,
-    FailureWithMultipleLinesStringDifference,
-    FailureWithSingleLineStringDifference,
+    FailureWithMultilineStringDifference,
+    FailureWithUnilineStringDifference,
     FailureWithStreamDifference,
     FailureWithTimeout
 }
