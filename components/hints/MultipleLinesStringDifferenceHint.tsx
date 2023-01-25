@@ -8,6 +8,7 @@
 import { HintCategory } from '@minimouli/types/hints'
 import styles from './MultipleLinesStringDifferenceHint.module.scss'
 import { HintSnippet } from '../HintSnippet'
+import { StringDifference } from '../StringDifference'
 import type { StringDifferenceHint } from '@minimouli/types/hints'
 
 interface MultipleLinesStringDifferenceHintProps {
@@ -29,37 +30,7 @@ const MultipleLinesStringDifferenceHint = ({ hint }: MultipleLinesStringDifferen
             <span className={styles.message} >{hint.message}</span>
         )}
 
-        <div className={styles.difference} >
-
-            <div className={styles.column} >
-                <span className={styles.title} >Expected:</span>
-                <div className={styles.content} >
-                    {hint.expected.value.map((expected, index) => (
-                        <span key={index} >
-                            {expected}
-                            <span className={styles.indication} >
-                                {index === hint.expected.value.length - 1 ? '$' : '↵'}
-                            </span>
-                        </span>
-                    ))}
-                </div>
-            </div>
-
-            <div className={styles.column} >
-                <span className={styles.title} >Received:</span>
-                <div className={styles.content} >
-                    {hint.received.value.map((received, index) => (
-                        <span key={index} >
-                            {received}
-                            <span className={styles.indication} >
-                                {index === hint.received.value.length - 1 ? '$' : '↵'}
-                            </span>
-                        </span>
-                    ))}
-                </div>
-            </div>
-
-        </div>
+        <StringDifference oldArray={hint.expected.value} newArray={hint.received.value} />
     </div>
 )
 
