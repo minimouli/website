@@ -16,10 +16,6 @@
 
     .head {
         padding: 18px 24px;
-        border-width: 0;
-        border-bottom-width: 1px;
-        border-color: var(--stroke);
-        border-style: solid;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -29,6 +25,15 @@
             font-size: var(--font-size-lg);
             font-weight: 500;
         }
+    }
+
+    .chart {
+        padding: 0 24px 18px 24px;
+        height: 320px;
+        border-width: 0;
+        border-bottom-width: 1px;
+        border-color: var(--stroke);
+        border-style: solid;
     }
 
     .body {
