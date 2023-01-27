@@ -24,10 +24,35 @@
         flex-direction: row;
         justify-content: space-between;
 
-        span {
-            color: var(--primary-text);
-            font-size: var(--font-size-lg);
-            font-weight: 500;
+        .title {
+            display: flex;
+            flex-direction: column;
+
+            .name {
+                color: var(--primary-text);
+                font-size: var(--font-size-lg);
+                font-weight: 500;
+            }
+
+            .chips {
+                margin-top: 12px;
+                display: flex;
+                flex-direction: row;
+                gap: 16px;
+
+                .chip {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    span {
+                        margin-left: 8px;
+                        color: var(--primary-text-darker);
+                        font-size: var(--font-size-xs);
+                        font-weight: 400;
+                    }
+                }
+            }
         }
     }
 
