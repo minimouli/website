@@ -7,6 +7,7 @@
 
 import { TestStatus } from '@minimouli/types/syntheses'
 import { HintType } from '@minimouli/types/hints'
+import { CategoryChip } from './CategoryChip'
 import styles from './Test.module.scss'
 import { ComparisonHint } from './hints/ComparisonHint'
 import { EqualityHint } from './hints/EqualityHint'
@@ -70,7 +71,12 @@ const getHint = (hint: Hint): ReactNode => {
 const Test = ({ test, withDivider = false }: TestProps) => (
     <div className={`${styles.container} ${withDivider ? styles.withDivider : ''}`} >
         <div className={styles.head} >
-            <span className={styles.name} >{test.name}</span>
+            <div className={styles.title} >
+                <span className={styles.name} >{test.name}</span>
+                {test.hint?.category !== undefined && (
+                    <CategoryChip category={test.hint.category} />
+                )}
+            </div>
             <span className={styles.status} >{getStatus(test.status)}</span>
         </div>
 

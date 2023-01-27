@@ -22,10 +22,17 @@
         flex-direction: row;
         justify-content: space-between;
 
-        .name {
-            height: 1.25rem;
-            color: var(--primary-text);
-            font-weight: 400;
+        .title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .name {
+                margin-right: 12px;
+                height: 1.25rem;
+                color: var(--primary-text);
+                font-weight: 400;
+            }
         }
 
         .status {
