@@ -8,6 +8,7 @@
 import styles from './RunOverviewCard.module.scss'
 import { SuiteOverviewItem } from './SuiteOverviewItem'
 import { LargeIndicator } from '../LargeIndicator'
+import { SuitesRadarChart } from '../SuitesRadarChart'
 import { getSuccessRatio } from '../../helpers/light-suite.helper'
 import type { LightSuiteSynthesis } from '../../types/LightSuiteSynthesis'
 
@@ -25,6 +26,10 @@ const RunOverviewCard = ({ suites }: RunOverviewCardProps) => {
             <div className={styles.head} >
                 <span>Suites</span>
                 <LargeIndicator value={score} />
+            </div>
+
+            <div className={styles.chart} >
+                <SuitesRadarChart suites={suites} />
             </div>
 
             <div className={styles.body} >

@@ -19,7 +19,8 @@
     "diff": "^5.1.0",
     "next": "13.1.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "recharts": "^2.3.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.0",

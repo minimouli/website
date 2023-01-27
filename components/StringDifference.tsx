@@ -99,7 +99,7 @@ const StringDifference = ({ oldArray, newArray }: StringDifferenceProps) => {
             <tbody>
                 {lines.map(([line, status], index) => (
                     <tr key={index} >
-                        <td>{status === LineStatus.Added ? '' : index}</td>
+                        <td>{status === LineStatus.Added ? '' : index + 1}</td>
                         <td>
                             <span className={status === LineStatus.Removed ? styles.removed : ''} >
                                 {status !== LineStatus.Added && (
@@ -112,7 +112,7 @@ const StringDifference = ({ oldArray, newArray }: StringDifferenceProps) => {
                                 )}
                             </span>
                         </td>
-                        <td>{status === LineStatus.Removed ? '' : index}</td>
+                        <td>{status === LineStatus.Removed ? '' : index + 1}</td>
                         <td>
                             <span className={status === LineStatus.Added ? styles.added : ''} >
                                 {status !== LineStatus.Removed && (
