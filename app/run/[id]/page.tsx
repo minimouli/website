@@ -10,6 +10,7 @@ import { notFound } from 'next/navigation'
 import styles from './Run.module.scss'
 import { Footer } from '../../../components/Footer'
 import { RunHeader } from '../../../components/RunHeader'
+import { GitHubStarCard } from '../../../components/cards/GitHubStarCard'
 import { RunInformationCard } from '../../../components/cards/RunInformationCard'
 import { RunOverviewCard } from '../../../components/cards/RunOverviewCard'
 import { SuiteCard } from '../../../components/cards/SuiteCard'
@@ -57,8 +58,9 @@ const Run = async ({ params }: RunProps) => {
             <main className={styles.main} >
                 <Container>
                     <div className={styles.container} >
+                        <GitHubStarCard />
 
-                        <div className={styles.suites} >
+                        <div className={styles.grid} >
                             <div className={styles.result} >
                                 {suites.map((suite) => (
                                     <SuiteCard key={suite.path.join('/')} suite={suite} />
