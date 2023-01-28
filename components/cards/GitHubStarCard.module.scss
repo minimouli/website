@@ -1,0 +1,24 @@
+/**
+ * Copyright (c) Minimouli
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.container {
+    padding: 12px 24px;
+    background: var(--surface);
+    border-width: 1px;
+    border-color: var(--stroke);
+    border-style: solid;
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    & > span {
+        color: var(--primary-text);
+        font-size: var(--font-size-md);
+    }
+}

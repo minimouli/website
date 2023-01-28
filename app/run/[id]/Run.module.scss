@@ -21,8 +21,9 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+        gap: 24px;
 
-        .suites {
+        .grid {
             display: flex;
             flex-direction: column-reverse;
             gap: 24px;
@@ -42,7 +43,7 @@
 
         @media only screen and (min-width: 992px) {
 
-            .suites {
+            .grid {
                 flex-direction: row;
 
                 .result {
