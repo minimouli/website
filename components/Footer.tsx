@@ -9,6 +9,7 @@ import Link from 'next/link'
 import styles from './Footer.module.scss'
 import { Identity } from './Identity'
 import { MadeWithLove } from './MadeWithLove'
+import { DiscordIcon } from './icons/DiscordIcon'
 import { GithubIcon } from './icons/GithubIcon'
 import { Container } from './layouts/Container'
 
@@ -26,6 +27,9 @@ const Footer = () => (
                     <div className={styles.icons} >
                         <Link href="https://github.com/minimouli" >
                             <GithubIcon className={styles.icon} />
+                        </Link>
+                        <Link href="https://discord.gg/Ww8mpbx4M7" >
+                            <DiscordIcon className={styles.icon} />
                         </Link>
                     </div>
                     <MadeWithLove />
