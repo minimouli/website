@@ -10,6 +10,7 @@ import { notFound } from 'next/navigation'
 import styles from './Run.module.scss'
 import { Footer } from '../../../components/Footer'
 import { RunHeader } from '../../../components/RunHeader'
+import { DiscordInvitationCard } from '../../../components/cards/DiscordInvitationCard'
 import { GitHubStarCard } from '../../../components/cards/GitHubStarCard'
 import { RunInformationCard } from '../../../components/cards/RunInformationCard'
 import { RunOverviewCard } from '../../../components/cards/RunOverviewCard'
@@ -58,7 +59,7 @@ const Run = async ({ params }: RunProps) => {
             <main className={styles.main} >
                 <Container>
                     <div className={styles.container} >
-                        <GitHubStarCard />
+                        <DiscordInvitationCard />
 
                         <div className={styles.grid} >
                             <div className={styles.result} >
@@ -69,6 +70,7 @@ const Run = async ({ params }: RunProps) => {
 
                             <div className={styles.general} >
                                 <RunOverviewCard suites={suites} />
+                                <GitHubStarCard />
                                 <RunInformationCard run={run} />
                             </div>
                         </div>

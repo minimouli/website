@@ -31,19 +31,10 @@
             height: 18px;
 
             path {
-                stroke: var(--primary-text-darker);
+                fill: var(--primary-text-darker);
                 transition: stroke ease-in 0.08s;
             }
         }
-    }
-
-    .count {
-        margin-left: 6px;
-        padding: 1px 8px;
-        background: var(--action-surface-hover);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
     }
 
     &:hover {
@@ -55,7 +46,7 @@
 
         .icon {
             path {
-                stroke: var(--primary-text);
+                fill: var(--primary-text);
             }
         }
     }
